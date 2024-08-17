@@ -30,7 +30,6 @@ english_description_creator = agents.description_creator()
 tamil_description_creator = agents.tamil_description_creator()
 email_creator = agents.email_creator()
 
-# TODO: UPDATE THE VIDEO DETAILS - The purpose of this video is to talk about how I've automated my YouTube video creation process using CrewAI, cover new CrewAI features, and how to build custom CrewAI tools
 
 video_topic = "Basics of AI"
 video_details = """
