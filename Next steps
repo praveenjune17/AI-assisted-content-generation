@@ -1,0 +1,46 @@
+*) improve the video quality
+    add cards
+    market
+        send email
+*) check amount of youtube AI API
+*) seperate output for tamil
+Translate
+    Title and description
+
+Video editing
+    https://www.youtube.com/watch?v=BBFub0zErFA
+
+0) content research ->
+    *)check subscriber's comments or Manual
+a) Record the content and Edit the content -> Manual
+b) Feed the content to agent (https://github.com/openai/openai-cookbook/blob/main/examples/gpt4o/introduction_to_gpt4o.ipynb)
+        to generate title , description , thumbnail
+
+title -> "Advanced features of google colab"
+
+Prompts for title and description
+    I created a youtube video on {title} now I would like to create a potential high
+    click-through-rate youtube title and a catchy description explaining about the video with some trending hashtags.
+    Make sure both of the generated in Tamil (with a mix of english here and there)
+
+Thumbnail prompt
+    You are a digital marketing expert and you are obsessed at youtube video aesthetics, generate a youtube
+    thumbnail image of size 1280 x 720 pixels which should implicitly explain the idea of our youtube video
+    with title "{title}"
+
+c) upload youtube video by python API with info (https://developers.google.com/youtube/v3/guides/uploading_a_video)
+    Title - AI
+    description- AI
+    Thumbnail- AI
+        https://developers.google.com/youtube/v3/docs/thumbnails/set
+    privacy status- ok
+    schedule release-ok
+        https://stackoverflow.com/questions/20025814/can-i-schedule-youtube-videos-for-release-via-the-api-and-other-limited-featu
+    keywords- ok
+    categoryId - AI
+
+Action items
+*) resize the image
+
+
+
