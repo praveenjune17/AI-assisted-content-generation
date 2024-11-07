@@ -1,0 +1,35 @@
+############################ Content params ############################################
+video_file_folder: "/Users/praveenkumarchandrasekaran/Movies/Wondershare Filmora Mac/Recorded/udemy_lectures/"
+video_file: "VID_20240803_102304.mp4"
+thumbnail_folder: "/Users/praveenkumarchandrasekaran/Downloads/"
+thumbnail_resolution: (1280, 720)
+############################ Youtube API Params ########################################
+secrets_file: "/Users/praveenkumarchandrasekaran/Downloads/client_secrets_v2.json"
+scopes: ["https://www.googleapis.com/auth/youtube.upload"]
+api_service_name: "youtube"
+api_version: "v3"
+video_privacy_status: 'private'              # Can be "private", "public", or "unlisted"
+time_zone : "asia/kolkata"                   # Replace with your local timezone
+category_id: "27"                            # e.g., "22" for People & Blogs
+date_to_publish:
+  publish_yr : 2024
+  publish_mth: 11
+  publish_day: 7
+  publish_hr : 18
+  publish_min: 0
+############################# LLM API Params ############################################
+llm: "gpt-4o-mini"
+img_gen_model: "dall-e-3"
+asr_model: "whisper-1"
+language: 'English'
+system_prompt: '''
+        Using the provided information create a potential high
+        click-through-rate youtube title and a catchy description explaining about
+        the video with some trending hashtags.
+        Make sure both are generated in {0} (with a mix of english here and there in the title).
+        Generate a relevant thumbnail to be used for this video and make sure it is 
+        cute and friendly and also add some keywords (with hashtags relating to AI, {0})
+        related to this content. Return the youtube title, description, thumbnail idea,
+        and the keywords structured in JSON
+        '''
+###########################################################################################
