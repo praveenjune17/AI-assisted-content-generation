@@ -1,4 +1,3 @@
-The provided code includes several key features that automate YouTube video uploads with additional functionality for generating titles, descriptions, thumbnails, and scheduling publication times. Here’s a breakdown of the main features:
 
 ### 1. **YouTube API Integration**
    - **OAuth 2.0 Authentication**: Authenticates the YouTube API client via Google's OAuth 2.0, enabling the script to securely interact with the YouTube Data API.
