@@ -1,6 +1,4 @@
-Here's a sample `README.md` file for the provided code:
 
----
 
 # YouTube Video Uploader with OpenAI and Google API Integration
 
