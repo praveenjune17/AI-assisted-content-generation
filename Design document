@@ -63,5 +63,78 @@ graph TD
     B --> C[Positional Encoding]
     C --> D[Transformer Encoder]
     D --> E[Final Representation]
-    E -->
+    E --> F[Fully Connected Layer]
+    F --> G[Sigmoid Activation]
+    G --> H[Prediction: Interaction or Not]
+    
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+    style H fill:#fc9,stroke:#333,stroke-width:2px
+
+Key Components Explained Simply
+
+📌 Embedding Layer
+🔹 Converts Step IDs into meaningful numeric representations.
+🔹 Transforms duration values into the same space.
+
+📌 Positional Encoding
+🔹 Adds temporal context (since order matters).
+🔹 Ensures model understands sequence dependencies.
+
+📌 Transformer Encoder
+🔹 Captures relationships between steps in the journey.
+🔹 Helps detect patterns that lead to interaction or dropout.
+
+📌 Final Classification Layer
+🔹 Uses learned journey representation to predict interaction likelihood.
+
+📌 Embedding Extraction
+🔹 Generates vector representations for downstream analytics.
+
+
+---
+
+5️⃣ Model Training & Evaluation
+
+✅ Training
+
+Uses historical customer journey data.
+
+Optimized with Binary Cross-Entropy Loss (since target is 0/1).
+
+
+✅ Evaluation
+
+Accuracy of interaction prediction.
+
+Analysis of embeddings for customer segmentation.
+
+
+✅ Interpretability
+
+Use SHAP values or Integrated Gradients to explain why the model predicts interaction for a given journey.
+
+Identify the most influential steps.
+
+
+
+---
+
+6️⃣ Next Steps & Enhancements
+
+1️⃣ Hyperparameter tuning to optimize model performance.
+2️⃣ Testing on real-world data to validate findings.
+3️⃣ Deploying embeddings for advanced customer segmentation.
+
+
+---
+
+🎯 Summary
+
+🚀 Developed a sequence model to analyze customer journeys.
+📊 Handled dataset challenges to prevent leakage.
+🔍 Extracted embeddings for further insights.
+💡 Scalable approach for real-world applications.
+
+Would you like any refinements or additional sections? 🚀
 
