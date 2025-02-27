@@ -1,0 +1,67 @@
+🚀 POC Report: Transformer-Based Sequence Analysis for Customer Interaction Prediction
+
+1️⃣ Introduction
+
+This Proof of Concept (POC) explores the use of a Transformer-based model to analyze customer journeys and predict whether an interaction occurs at some point in the sequence.
+By modeling the sequence of steps a customer takes, we can:
+✅ Identify patterns in customer journeys
+✅ Generate contextual embeddings for downstream applications
+✅ Help businesses optimize user experiences
+
+
+---
+
+2️⃣ Problem Statement
+
+Customers follow different paths while interacting with a product or service.
+Some journeys result in an interaction (Step 51), while others end without interaction (Step 182).
+
+Our goal is to train a sequence model that takes a customer journey as input and predicts whether an interaction will occur.
+Additionally, we extract contextual embeddings that encode journey characteristics.
+
+
+---
+
+3️⃣ Dataset Creation – The Most Crucial Step
+
+Understanding the Customer Journey
+
+A customer’s journey is represented as a sequence of steps they take over time.
+Each step consists of:
+
+Step ID: Represents the action taken (e.g., browsing, adding items to cart).
+
+Duration: Time taken before moving to the next step.
+
+
+Key Rules for Dataset Construction
+
+📌 Step 51 is not included in the input sequence to prevent target leakage.
+📌 If Step 51 is present, we split the sequence at that point and set target = 1.
+📌 If Step 51 is absent, the sequence must end with Step 182, and we set target = 0.
+
+Example 1: Journey With Interaction (Target = 1)
+
+(Target = 1 because Step 51 was encountered and removed)
+
+Example 2: Journey Without Interaction (Target = 0)
+
+(Target = 0 because Step 51 was never encountered)
+
+Why Is This Crucial?
+
+⚠️ Incorrect dataset construction can cause data leakage, leading to misleading results.
+✅ By carefully handling Step 51, we ensure the model learns from the journey itself, not the presence of an interaction.
+
+
+---
+
+4️⃣ Model Architecture – High-Level Overview
+
+graph TD
+    A[Customer Journey Sequence] -->|Step IDs & Durations| B[Embedding Layer]
+    B --> C[Positional Encoding]
+    C --> D[Transformer Encoder]
+    D --> E[Final Representation]
+    E -->
+
