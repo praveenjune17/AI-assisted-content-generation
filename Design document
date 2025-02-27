@@ -138,3 +138,70 @@ Identify the most influential steps.
 
 Would you like any refinements or additional sections? 🚀
 
+Dataset Creation - Handling Customer Journey Sequences
+
+1️⃣ Understanding the Raw Sequence Data
+
+Each customer journey consists of a series of step IDs with associated durations representing time taken to transition between steps. The sequences vary in length and structure.
+
+📌 Two Possible Outcomes for a Sequence:
+
+Interaction Occurs: Step 51 appears (we set target = 1).
+
+No Interaction: The sequence ends with Step 182 (we set target = 0).
+
+
+
+---
+
+2️⃣ Raw Sequence Examples (Before Processing)
+
+Example 1: A Journey That Results in Interaction
+
+🚶 Raw Sequence:
+| Step ID | Duration (Seconds) | |---------|--------------------| | 5       | 1.2                | | 12      | 3.4                | | 33      | 2.5                | | 51      | 0.0                | | 60      | 1.8                | | 72      | 2.3                |
+
+📌 Preprocessing Steps:
+1️⃣ Detect Step 51 → Target = 1
+2️⃣ Remove Step 51 and everything after it (Step 51 should not be used as input)
+3️⃣ Final Processed Sequence:
+| Step ID | Duration (Seconds) | |---------|--------------------| | 5       | 1.2                | | 12      | 3.4                | | 33      | 2.5                |
+
+
+---
+
+Example 2: A Journey Without Interaction
+
+🚶 Raw Sequence:
+| Step ID | Duration (Seconds) | |---------|--------------------| | 7       | 0.8                | | 14      | 2.1                | | 26      | 1.5                | | 39      | 3.0                | | 182     | 0.0                |
+
+📌 Preprocessing Steps:
+1️⃣ Check for Step 51 → Not Present → Target = 0
+2️⃣ Ensure Step 182 is the final step (indicating journey ended without interaction)
+3️⃣ Final Processed Sequence:
+| Step ID | Duration (Seconds) | |---------|--------------------| | 7       | 0.8                | | 14      | 2.1                | | 26      | 1.5                | | 39      | 3.0                |
+
+
+---
+
+3️⃣ Why Is This Preprocessing Crucial?
+
+🚫 Avoids Data Leakage:
+
+If we included Step 51 in the input, the model would directly learn that Step 51 = interaction, instead of learning the patterns leading up to it.
+
+
+📊 Ensures Meaningful Learning:
+
+The model now predicts interaction likelihood based on the steps leading up to it, rather than the presence of Step 51 itself.
+
+
+
+---
+
+4️⃣ Final Processed Dataset
+
+✅ Now the model receives step sequences and durations as input and learns the probability of interaction happening.
+
+
+
