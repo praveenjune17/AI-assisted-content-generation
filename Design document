@@ -203,5 +203,25 @@ The model now predicts interaction likelihood based on the steps leading up to i
 
 ✅ Now the model receives step sequences and durations as input and learns the probability of interaction happening.
 
+# Processed dataset in Python list format
 
+# Example 1: A journey that results in interaction (Target = 1)
+sequence_1 = {
+    "step_sequence": [5, 12, 33], 
+    "duration_sequence": [1.2, 3.4, 2.5], 
+    "target": 1
+}
+
+# Example 2: A journey without interaction (Target = 0)
+sequence_2 = {
+    "step_sequence": [7, 14, 26, 39], 
+    "duration_sequence": [0.8, 2.1, 1.5, 3.0], 
+    "target": 0
+}
+
+# Final dataset as a list of dictionaries
+dataset = [sequence_1, sequence_2]
+
+# Printing the dataset
+print(dataset)
 
